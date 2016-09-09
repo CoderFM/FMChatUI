@@ -9,6 +9,7 @@
 #import "IMImagePickerManager.h"
 #import "IMBaseAttribute.h"
 #import <AVFoundation/AVFoundation.h>
+#import <MobileCoreServices/MobileCoreServices.h>
 
 @interface IMImagePickerManager ()<UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 

@@ -169,7 +169,7 @@
 - (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo{
     
     if (error == nil) {
-        [SVProgressHUD showSuccessWithStatus:@"保存成功"];
+        
     }
     
 }

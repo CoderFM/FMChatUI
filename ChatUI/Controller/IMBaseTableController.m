@@ -17,10 +17,11 @@
 #import "IMAudioTool.h"
 #import "IMDownloadManager.h"
 #import "IMSQLiteTool.h"
+#import "IMChatToolBar.h"
 
 
 
-@interface IMBaseTableController ()<IMBaseCellDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface IMBaseTableController ()<IMBaseCellDelegate, IMChatToolBarDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property(nonatomic, weak)UIButton *bubbleButton;
 
@@ -28,11 +29,19 @@
 
 @property(nonatomic, assign)NSInteger unreadCount;
 
+@property(nonatomic, weak)IMChatToolBar *chatToolBar;
+
 @end
 
 @implementation IMBaseTableController{
 
 }
+
+CGFloat SchoolTopHeight = 44;
+
+CGFloat SchoolChatToolBarHeight = 55;
+
+CGFloat SchoolChatMoreHeight = 120;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -118,7 +127,7 @@
 
 - (void)viewWillLayoutSubviews{
     [super viewWillLayoutSubviews];
-    
+    [self chatToolBar];
 }
 
 #pragma mark - 初始化tableView
@@ -132,15 +141,13 @@
     
     tableView.dataSource = self;
     
+    tableView.backgroundColor = UIColorFromRGB(0xf7f7f7);
+    
     self.tableView = tableView;
     
-    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.left.top.bottom.equalTo(self.view);
-    }];
+    self.tableView.frame = CGRectMake(0, 64, SCREEN_WIDTH, SCREEN_HEIGHT - 64 - SchoolChatToolBarHeight);
     
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    
-    self.tableView.backgroundColor = backcolor;
     
     [self.tableView registerClass:[IMBaseCell class] forCellReuseIdentifier:NSStringFromClass([IMBaseCell class])];
     
@@ -190,7 +197,35 @@
 }
 
 - (void)loadData{
+    WeakSelf
+    [IMSQLiteTool loadMessagesWithMessageTime:@"" reviceID:[IMBaseAttribute shareIMBaseAttribute].reciverID withTeacherID:@"11" isExclude:NO RerutnMessagesBlock:^(NSArray *messages) {
+        if (messages && messages.count > 0) {
+            IMBaseItem *item = [messages lastObject];
+            weakSelf.lastMessageId = item.chatMessageIdentifier;
+            weakSelf.lastMessageTime = item.messageTime;
+            [messages enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                [weakSelf reloadDataWithMessage:obj isInser:NO];
+            }];
+        }
+    }];
     
+}
+
+- (void)loadMoreData{
+    
+    self.scrollToIndex = self.reloadTable.messages.count;
+    WeakSelf
+    [IMSQLiteTool loadMessagesWithMessageTime:self.lastMessageTime reviceID:[IMBaseAttribute shareIMBaseAttribute].reciverID withTeacherID:@"11" isExclude:NO RerutnMessagesBlock:^(NSArray *messages) {
+        if (messages && messages.count > 0) {
+            IMBaseItem *item = [messages lastObject];
+            weakSelf.lastMessageId = item.chatMessageIdentifier;
+            weakSelf.lastMessageTime = item.messageTime;
+            [messages enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                [weakSelf reloadDataWithMessage:obj isInser:YES];
+            }];
+        }
+        [weakSelf.tableView.mj_header endRefreshing];
+    }];
 }
 
 #pragma mark - 处理服务器数据
@@ -238,16 +273,14 @@
     
 }
 
-- (void)loadMoreData{
-    
-}
-
 #pragma mark - 滚动到底部
 - (void)scrollToBottom{
     
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[self.reloadTable mutableArrayValueForKey:@"messages"].count - 1 inSection:0];
-    
-    [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+    if ([self.reloadTable mutableArrayValueForKey:@"messages"].count > 0) {
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[self.reloadTable mutableArrayValueForKey:@"messages"].count - 1 inSection:0];
+        
+        [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+    }
 }
 
 #pragma mark - 气泡点击
@@ -299,7 +332,7 @@
             [weakSelf.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
         }];
         
-        cell.style = [self isLeftWithIndexPath:indexPath] ? IMBaseCellLeftStyle : IMBaseCellRightStyle;
+        cell.style = indexPath.row % 2;
         
         cell.messageItem = message;
         
@@ -347,9 +380,33 @@
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
-    if ([self.imBaseDelegate respondsToSelector:@selector(tableViewScroll:)]) {
-        [self.imBaseDelegate tableViewScroll:self];
+    [self.view endEditing:YES];
+    [self.chatToolBar backOriginalHeight];
+}
+
+#pragma mark - IMChatToolBarDelegate
+
+- (void)IMChatToolBar:(IMChatToolBar *)schoolChatToolBar imBaseItem:(IMBaseItem *)messageItem{
+    [IMSQLiteTool savaWithMessage:messageItem];
+    [self reloadDataWithMessage:messageItem isInser:NO];
+}
+
+- (void)IMChatToolBar:(IMChatToolBar *)schoolChatToolBar sendIMBaseItem:(IMBaseItem *)message{
+    [IMSQLiteTool savaWithMessage:message];
+    [self reloadDataWithMessage:message isInser:NO];
+}
+
+- (void)IMChatToolBar:(IMChatToolBar *)schoolChatToolBar ReloadHeight:(CGFloat)reloadHeight{
+    
+    if (schoolChatToolBar.inputTextView.isFirstResponder) {
+        [self scrollToBottom];
     }
+    
+    CGRect frame = self.tableView.frame;
+    frame.origin.y = 64 - reloadHeight;
+    [UIView animateWithDuration:0.25 animations:^{
+        self.tableView.frame = frame;
+    }];
 }
 
 #pragma mark - IMBaseCell delegate
@@ -414,7 +471,7 @@
                     }
                 }];
             } else {
-                [weakSelf alertWithMessage:@"播放失败"];
+                NSLog(@"播放失败");
             }
         }];
     }
@@ -799,6 +856,21 @@
         
     }
     return _reloadTable;
+}
+
+- (IMChatToolBar *)chatToolBar{
+    
+    if (_chatToolBar == nil) {
+        
+        IMChatToolBar *toolBar = [[IMChatToolBar alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT - SchoolChatToolBarHeight, SCREEN_WIDTH, SchoolChatToolBarHeight + SchoolChatMoreHeight) toolBarHeight:SchoolChatToolBarHeight moreViewHeight:SchoolChatMoreHeight];
+        
+        toolBar.delegate = self;
+        
+        [self.view addSubview:toolBar];
+        
+        _chatToolBar = toolBar;
+    }
+    return _chatToolBar;
 }
 
 - (void)dealloc{

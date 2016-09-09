@@ -11,7 +11,6 @@
 #import "Masonry.h"
 #import "IMImagePickerManager.h"
 #import <MediaPlayer/MediaPlayer.h>
-#import "SignalRClient.h"
 #import "IMUploadManager.h"
 #import "IMVoiceVolumeView.h"
 #import "IMSQLiteTool.h"
@@ -55,6 +54,8 @@
         
         self.toolBarHeight = toolBarHeight;
         self.moreViewHeight = moreViewHeight;
+        
+        self.backgroundColor = UIColorFromRGB(0xe3e3e3);
         
         CGFloat btnW = 30;
         CGFloat emoticonButtonW = 30;
@@ -198,20 +199,20 @@
                 
                 [item setUpWithOtherInfo];
                 
-                item.sendState = IMMessageSending;
+//                item.sendState = IMMessageSending;
                 
                 if ([weakSelf.delegate respondsToSelector:@selector(IMChatToolBar:imBaseItem:)]) {
                     [weakSelf.delegate IMChatToolBar:self imBaseItem:item];
                 }
                 
-                [IMUploadManager uploadAudio:[[IMBaseAttribute dataAudioPath] stringByAppendingPathComponent:audioPath] finishBlock:^(IMUploadReturnModel *model) {
-                    
-                    item.messageBody.voiceUrlString = model.url;
-                    
-                    item.messageBody.locationPath = audioPath;
-                    
-                    [self sendMessage:item];
-                }];
+//                [IMUploadManager uploadAudio:[[IMBaseAttribute dataAudioPath] stringByAppendingPathComponent:audioPath] finishBlock:^(IMUploadReturnModel *model) {
+//                    
+//                    item.messageBody.voiceUrlString = model.url;
+//                    
+//                    item.messageBody.locationPath = audioPath;
+//                    
+//                    [self sendMessage:item];
+//                }];
                 
             } else {
                 [weakSelf.volumeView showShortTimeModel];
@@ -352,13 +353,13 @@
         
         [item setUpWithOtherInfo];
         
-        item.sendState = IMMessageSending;
+//        item.sendState = IMMessageSending;
         
         if ([self.delegate respondsToSelector:@selector(IMChatToolBar:imBaseItem:)]) {
             [self.delegate IMChatToolBar:self imBaseItem:item];
         }
         
-        [self sendMessage:item];
+//        [self sendMessage:item];
         
         self.inputTextView.text = @"";
     }
@@ -420,28 +421,28 @@
             
             [item setUpWithOtherInfo];
             
-            item.sendState = IMMessageSending;
+//            item.sendState = IMMessageSending;
             
             if ([weakSelf.delegate respondsToSelector:@selector(IMChatToolBar:imBaseItem:)]) {
                 [weakSelf.delegate IMChatToolBar:weakSelf imBaseItem:item];
             }
             
-            [IMUploadManager uploadImage:[NSString stringWithFormat:@"%@/%@", [IMBaseAttribute dataPicturePath], soucePath] finishBlock:^(IMUploadReturnModel *model) {
-                
-                item.messageBody.imageUrlString = model.url;
-                item.messageBody.imageThumUrlString = model.thumbnailUrl;
-                item.messageBody.locationPath = soucePath;
-                [self sendMessage:item];
-            }];
-            
-            [[IMUploadProgressDelegate uploadProgressDelegateWithKey:soucePath] setProgressBlock:^(CGFloat progress) {
-                item.uploadProgress = progress;
-                MainQueueBlock(^{
-                    if ([weakSelf.delegate respondsToSelector:@selector(IMChatToolBar:imBaseItem:)]) {
-                        [weakSelf.delegate IMChatToolBar:weakSelf imBaseItem:item];
-                    }
-                })
-            }];
+//            [IMUploadManager uploadImage:[NSString stringWithFormat:@"%@/%@", [IMBaseAttribute dataPicturePath], soucePath] finishBlock:^(IMUploadReturnModel *model) {
+//                
+//                item.messageBody.imageUrlString = model.url;
+//                item.messageBody.imageThumUrlString = model.thumbnailUrl;
+//                item.messageBody.locationPath = soucePath;
+//                [self sendMessage:item];
+//            }];
+//            
+//            [[IMUploadProgressDelegate uploadProgressDelegateWithKey:soucePath] setProgressBlock:^(CGFloat progress) {
+//                item.uploadProgress = progress;
+//                MainQueueBlock(^{
+//                    if ([weakSelf.delegate respondsToSelector:@selector(IMChatToolBar:imBaseItem:)]) {
+//                        [weakSelf.delegate IMChatToolBar:weakSelf imBaseItem:item];
+//                    }
+//                })
+//            }];
         }
     }];
 }
@@ -456,28 +457,28 @@
             
             [item setUpWithOtherInfo];
             
-            item.sendState = IMMessageSending;
+//            item.sendState = IMMessageSending;
             
             if ([weakSelf.delegate respondsToSelector:@selector(IMChatToolBar:imBaseItem:)]) {
                 [weakSelf.delegate IMChatToolBar:weakSelf imBaseItem:item];
             }
             
-            [IMUploadManager uploadImage:[NSString stringWithFormat:@"%@/%@", [IMBaseAttribute dataPicturePath], soucePath] finishBlock:^(IMUploadReturnModel *model) {
-                
-                item.messageBody.imageUrlString = model.url;
-                item.messageBody.imageThumUrlString = model.thumbnailUrl;
-                item.messageBody.locationPath = soucePath;
-                [self sendMessage:item];
-            }];
-            
-            [[IMUploadProgressDelegate uploadProgressDelegateWithKey:soucePath] setProgressBlock:^(CGFloat progress) {
-                MainQueueBlock(^{
-                    item.uploadProgress = progress;
-                    if ([weakSelf.delegate respondsToSelector:@selector(IMChatToolBar:imBaseItem:)]) {
-                        [weakSelf.delegate IMChatToolBar:weakSelf imBaseItem:item];
-                    }
-                })
-            }];
+//            [IMUploadManager uploadImage:[NSString stringWithFormat:@"%@/%@", [IMBaseAttribute dataPicturePath], soucePath] finishBlock:^(IMUploadReturnModel *model) {
+//                
+//                item.messageBody.imageUrlString = model.url;
+//                item.messageBody.imageThumUrlString = model.thumbnailUrl;
+//                item.messageBody.locationPath = soucePath;
+//                [self sendMessage:item];
+//            }];
+//            
+//            [[IMUploadProgressDelegate uploadProgressDelegateWithKey:soucePath] setProgressBlock:^(CGFloat progress) {
+//                MainQueueBlock(^{
+//                    item.uploadProgress = progress;
+//                    if ([weakSelf.delegate respondsToSelector:@selector(IMChatToolBar:imBaseItem:)]) {
+//                        [weakSelf.delegate IMChatToolBar:weakSelf imBaseItem:item];
+//                    }
+//                })
+//            }];
         }
     }];
 }
@@ -493,27 +494,27 @@
             NSString *fileName = [[[vedioUrl path] componentsSeparatedByString:@"/"] lastObject];
             IMBaseItem *item = [IMBaseItem itemMessageCoverImage:coverImage vedioFileName:fileName];
             [item setUpWithOtherInfo];
-            item.sendState = IMMessageSending;
+//            item.sendState = IMMessageSending;
             if ([weakSelf.delegate respondsToSelector:@selector(IMChatToolBar:imBaseItem:)]) {
                 [weakSelf.delegate IMChatToolBar:self imBaseItem:item];
             }
             
-            [IMUploadManager uploadVideo:vedioUrl finishBlock:^(IMUploadReturnModel *model) {
-                item.messageBody.coverImage = model.coverImage;
-                item.messageBody.videoUrl = model.url;
-                item.messageBody.locationPath = fileName;
-                item.messageBody.imageUrlString = coverImage;
-                [self sendMessage:item];
-            }];
-            
-            [[IMUploadProgressDelegate uploadProgressDelegateWithKey:fileName] setProgressBlock:^(CGFloat progress) {
-                MainQueueBlock(^{
-                    item.uploadProgress = progress;
-                    if ([weakSelf.delegate respondsToSelector:@selector(IMChatToolBar:imBaseItem:)]) {
-                        [weakSelf.delegate IMChatToolBar:weakSelf imBaseItem:item];
-                    }
-                })
-            }];
+//            [IMUploadManager uploadVideo:vedioUrl finishBlock:^(IMUploadReturnModel *model) {
+//                item.messageBody.coverImage = model.coverImage;
+//                item.messageBody.videoUrl = model.url;
+//                item.messageBody.locationPath = fileName;
+//                item.messageBody.imageUrlString = coverImage;
+//                [self sendMessage:item];
+//            }];
+//            
+//            [[IMUploadProgressDelegate uploadProgressDelegateWithKey:fileName] setProgressBlock:^(CGFloat progress) {
+//                MainQueueBlock(^{
+//                    item.uploadProgress = progress;
+//                    if ([weakSelf.delegate respondsToSelector:@selector(IMChatToolBar:imBaseItem:)]) {
+//                        [weakSelf.delegate IMChatToolBar:weakSelf imBaseItem:item];
+//                    }
+//                })
+//            }];
         }
     }];
 }
@@ -539,7 +540,7 @@
     self.moreView.backgroundColor = backgroundColor;
 }
 
-- (void)setDelegate:(id<IMChatToolBarDelegate, IMChatMoreViewDelegate>)delegate{
+- (void)setDelegate:(id<IMChatToolBarDelegate>)delegate{
     _delegate = delegate;
     self.viewController = (UIViewController *)delegate;
 }
@@ -588,8 +589,6 @@
         
         inputView.delegate = self;
         
-        [BorderTool setBorderWithColorWithR:180 G:180 B:180 ToView:inputView Width:0.5];
-        
         [self.toolBarView addSubview:inputView];
         
         _inputTextView = inputView;
@@ -614,8 +613,6 @@
         audioButton.layer.cornerRadius = 5;
         
         audioButton.layer.masksToBounds = YES;
-        
-        [BorderTool setBorderWithColorWithR:180 G:180 B:180 ToView:audioButton Width:0.5];
         
         audioButton.hidden = YES;
         
@@ -694,7 +691,6 @@
     if (_toolBarView == nil) {
         
         UIView *view = [[UIView alloc] initWithFrame:CGRectZero];
-        [BorderTool setBorderWithColorWithR:180 G:180 B:180 ToView:view Width:0.5];
         [self addSubview:view];
         _toolBarView = view;
         

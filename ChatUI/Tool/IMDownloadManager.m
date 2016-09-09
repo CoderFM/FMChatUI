@@ -8,6 +8,7 @@
 
 #import "IMDownloadManager.h"
 #import "IMBaseAttribute.h"
+#import <AFNetworking/AFNetworking.h>
 
 @implementation IMDownloadManager
 

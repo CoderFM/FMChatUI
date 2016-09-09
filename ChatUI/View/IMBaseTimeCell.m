@@ -17,8 +17,6 @@
         
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         
-        self.contentView.backgroundColor = backcolor;
-        
         UILabel *timeLabel = [[UILabel alloc] init];
         
         timeLabel.textColor = [UIColor whiteColor];

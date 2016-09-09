@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Singler.h"
+#import <UIKit/UIKit.h>
 
 #define IMAudioTimeDurtion 0.05
 #define IMAudioMaxDurtion 60

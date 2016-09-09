@@ -18,10 +18,11 @@
 #import "IMPhotoBrowseController.h"
 #import "IMSQLiteTool.h"
 #import "ProgressView.h"
-#import "UIAlertViewBlock.h"
 #import "YZTextAttachment.h"
 #import "YZEmotionManager.h"
 #import "IMEmoticonConverter.h"
+#import "UIAlertViewBlock.h"
+#import <UIImageView+WebCache.h>
 
 @interface IMBaseCell ()
 
@@ -60,9 +61,9 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         
-        self.selectionStyle = UITableViewCellSelectionStyleNone;
+        self.contentView.backgroundColor = UIColorFromRGB(0xf7f7f7);
         
-        self.contentView.backgroundColor = backcolor;
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
         
         self.style = IMBaseCellDefaultStyle;
         
@@ -213,11 +214,7 @@
     
     self.nameLabel.text = self.messageItem.senderNickName;
     
-    NSInteger ID = [self.messageItem.senderID integerValue];
-    
-    NSString *urlPath = [NSString stringWithFormat:@"%@%@/%ld/%ld/%ld.jpg", _photoAddress, @"/UploadFile/Face/Distributor", ID / 250000, ID % 250000 / 500, ID % 500];
-    
-    [self.headImageView sd_setImageWithURL:[NSURL URLWithString:urlPath] placeholderImage:[UIImage imageNamed:@"wh80"]];
+    [self.headImageView sd_setImageWithURL:[NSURL URLWithString:self.messageItem.senderAvatarThumb] placeholderImage:[UIImage imageNamed:@"wh80"]];
     
 }
 
@@ -574,7 +571,7 @@
                 [self.delegate IMBaseCell:self presentViewController:na animated:NO completion:nil];
             }
         } else {
-            [self alertWithMessage:@"查看失败"];
+            NSLog(@"查看失败");
         }
     }
 }
@@ -638,7 +635,7 @@
                     [weakSelf setVideoCell];
                 })
             } else {
-                [self alertWithMessage:@"下载失败"];
+                NSLog(@"下载失败");
             }
         }];
         

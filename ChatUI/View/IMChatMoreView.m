@@ -53,11 +53,11 @@
 
 - (void)awakeFromNib{
     
-    self.backgroundColor = UIColorFromRGB(0xf7f7f7);
-    self.lineView.backgroundColor = UIColorFromRGB(0xcccccc);
+    self.backgroundColor =[UIColor colorWithRed:247 / 255.0 green:247 / 255.0 blue:247 / 255.0 alpha:1];
+    self.lineView.backgroundColor = [UIColor colorWithRed:204 / 255.0 green:204 / 255.0 blue:204 / 255.0 alpha:1];
     
     [self.labels enumerateObjectsUsingBlock:^(UILabel *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        obj.textColor = UIColorFromRGB(0x878787);
+        obj.textColor = [UIColor colorWithRed:135 / 255.0 green:135 / 255.0 blue:135 / 255.0 alpha:1];
     }];
 }
 

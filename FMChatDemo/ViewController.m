@@ -7,6 +7,10 @@
 //
 
 #import "ViewController.h"
+#import "IMBaseTableController.h"
+#import "IMBaseAttribute.h"
+#import "IMSQLiteTool.h"
+
 
 @interface ViewController ()
 
@@ -22,6 +26,12 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (IBAction)btnClick:(id)sender {
+    [IMSQLiteTool openSQLiteWithPartInteger:10];
+    [IMBaseAttribute shareIMBaseAttribute].part = 10;
+    [IMBaseAttribute shareIMBaseAttribute].reciverID = @"10";
+    [self.navigationController pushViewController:[[IMBaseTableController alloc] init] animated:YES];
 }
 
 @end

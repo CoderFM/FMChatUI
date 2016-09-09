@@ -8,35 +8,21 @@
 
 #import <Foundation/Foundation.h>
 #import "Singler.h"
-
-#define LoadGroupMessage @"api/IMAllocation/GetGroupMessageExt?access_token="
-
-#define LoadGroupPeople @"api/Merge/MergeData?access_token="
-
-#define CreatIMUser @"api/Account/RegisterOtherUser?nickName="
-
-#define InviteUserIntoGroup @"api/Friends/JoinChatGroup?access_token="
-
-#define LeaveGroup @"api/Friends/RemoveMemberGroup?access_token="
-
-#define GetChatSeverIp  @"api/IMAllocation/Get?access_token="
-
-#define ChatConnectionURL @"http://115.236.185.26:6789/"
-
-//#define ChatConnectionURL @"http://chat03.safetree.com.cn/"
-
-//#define ChatLoadMessage @"http://122.224.8.158:8082/"
-
-//appapi01.safetree.com.cn
-
-#define ChatLoadMessage @"http://appapi01.safetree.com.cn/"
-//#define ChatLoadMessage @"http://chat03.safetree.com.cn/"
-
-//http://chat03.safetree.com.cn
+#import <UIKit/UIKit.h>
 
 #define MainQueueBlock(block) dispatch_async(dispatch_get_main_queue(), block);
 
 #define BackgroundThreadBlock(block) dispatch_async(dispatch_get_global_queue(0, 0), block);
+
+#define WeakSelf __weak typeof(self)weakSelf = self;
+
+#define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
+
+#define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
+
+#define RGBColor(r,g,b) [UIColor colorWithRed:r / 255.0 green:g / 255.0 blue:b / 255.0 alpha:1]
+
+#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 @interface IMBaseAttribute : NSObject
 

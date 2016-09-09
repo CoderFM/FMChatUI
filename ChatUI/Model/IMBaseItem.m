@@ -65,8 +65,10 @@
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     // 2016-08-15 22:24:06
     formatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
+    self.senderNickName = @"测试";
+    self.senderAvatarThumb = @"http://img0.pconline.com.cn/pconline/1312/27/4072897_01.gif";
     self.messageTime = [formatter stringFromDate:[NSDate date]];
-    self.senderID = [LoginModelTool shareLoginModelTool].userModel.ID;
+    self.senderID = @"11";
     self.reviceID = [IMBaseAttribute shareIMBaseAttribute].reciverID;
     self.messageType = self.messageBody.type;
     self.chatMessageIdentifier = [NSString stringWithFormat:@"%d%d", (int)[[NSDate date] timeIntervalSince1970], arc4random() % 100000000];

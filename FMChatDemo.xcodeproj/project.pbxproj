@@ -44,7 +44,6 @@
 		15FD39291D82A88B00970CD3 /* IMUploadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FD38FA1D82A88B00970CD3 /* IMUploadManager.m */; };
 		15FD392A1D82A88B00970CD3 /* IMUserItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FD38FC1D82A88B00970CD3 /* IMUserItem.m */; };
 		15FD392B1D82A88B00970CD3 /* NSData+AES.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FD38FE1D82A88B00970CD3 /* NSData+AES.m */; };
-		15FD392C1D82A88B00970CD3 /* SignalRClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FD39001D82A88B00970CD3 /* SignalRClient.m */; };
 		15FD392D1D82A88B00970CD3 /* IMBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FD39031D82A88B00970CD3 /* IMBaseCell.m */; };
 		15FD392E1D82A88B00970CD3 /* IMBaseTimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FD39051D82A88B00970CD3 /* IMBaseTimeCell.m */; };
 		15FD392F1D82A88B00970CD3 /* IMChatMoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FD39071D82A88B00970CD3 /* IMChatMoreView.m */; };
@@ -120,6 +119,11 @@
 		15FD39B91D82A90200970CD3 /* school_chat_vedio_download@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15FD39751D82A90200970CD3 /* school_chat_vedio_download@3x.png */; };
 		15FD39BA1D82A90200970CD3 /* school_chat_vedio_play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15FD39761D82A90200970CD3 /* school_chat_vedio_play@2x.png */; };
 		15FD39BB1D82A90200970CD3 /* school_chat_vedio_play@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15FD39771D82A90200970CD3 /* school_chat_vedio_play@3x.png */; };
+		15FD39BE1D82ABF800970CD3 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15FD39BD1D82ABF800970CD3 /* MobileCoreServices.framework */; };
+		15FD39C11D82AE8B00970CD3 /* PlacehodeTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FD39C01D82AE8B00970CD3 /* PlacehodeTextView.m */; };
+		15FD39C41D82AF1100970CD3 /* UIView+FMViewFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FD39C31D82AF1100970CD3 /* UIView+FMViewFrame.m */; };
+		15FD39C71D82AFC400970CD3 /* UIAlertViewBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FD39C61D82AFC400970CD3 /* UIAlertViewBlock.m */; };
+		808E95EBF04989504C27E4B7 /* libPods-FMChatDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D5487953B206A21020EA091 /* libPods-FMChatDemo.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -210,8 +214,6 @@
 		15FD38FC1D82A88B00970CD3 /* IMUserItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMUserItem.m; sourceTree = "<group>"; };
 		15FD38FD1D82A88B00970CD3 /* NSData+AES.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+AES.h"; sourceTree = "<group>"; };
 		15FD38FE1D82A88B00970CD3 /* NSData+AES.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+AES.m"; sourceTree = "<group>"; };
-		15FD38FF1D82A88B00970CD3 /* SignalRClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignalRClient.h; sourceTree = "<group>"; };
-		15FD39001D82A88B00970CD3 /* SignalRClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignalRClient.m; sourceTree = "<group>"; };
 		15FD39021D82A88B00970CD3 /* IMBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMBaseCell.h; sourceTree = "<group>"; };
 		15FD39031D82A88B00970CD3 /* IMBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMBaseCell.m; sourceTree = "<group>"; };
 		15FD39041D82A88B00970CD3 /* IMBaseTimeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMBaseTimeCell.h; sourceTree = "<group>"; };
@@ -293,6 +295,17 @@
 		15FD39751D82A90200970CD3 /* school_chat_vedio_download@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "school_chat_vedio_download@3x.png"; sourceTree = "<group>"; };
 		15FD39761D82A90200970CD3 /* school_chat_vedio_play@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "school_chat_vedio_play@2x.png"; sourceTree = "<group>"; };
 		15FD39771D82A90200970CD3 /* school_chat_vedio_play@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "school_chat_vedio_play@3x.png"; sourceTree = "<group>"; };
+		15FD39BC1D82AA8B00970CD3 /* Singler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singler.h; sourceTree = "<group>"; };
+		15FD39BD1D82ABF800970CD3 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		15FD39BF1D82AE8B00970CD3 /* PlacehodeTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlacehodeTextView.h; sourceTree = "<group>"; };
+		15FD39C01D82AE8B00970CD3 /* PlacehodeTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlacehodeTextView.m; sourceTree = "<group>"; };
+		15FD39C21D82AF1100970CD3 /* UIView+FMViewFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FMViewFrame.h"; sourceTree = "<group>"; };
+		15FD39C31D82AF1100970CD3 /* UIView+FMViewFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FMViewFrame.m"; sourceTree = "<group>"; };
+		15FD39C51D82AFC400970CD3 /* UIAlertViewBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIAlertViewBlock.h; sourceTree = "<group>"; };
+		15FD39C61D82AFC400970CD3 /* UIAlertViewBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIAlertViewBlock.m; sourceTree = "<group>"; };
+		332D1A7B8BD38E507233052A /* Pods-FMChatDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FMChatDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-FMChatDemo/Pods-FMChatDemo.release.xcconfig"; sourceTree = "<group>"; };
+		345B655F68F8C5D023091BA8 /* Pods-FMChatDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FMChatDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FMChatDemo/Pods-FMChatDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		8D5487953B206A21020EA091 /* libPods-FMChatDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FMChatDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -300,7 +313,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15FD39BE1D82ABF800970CD3 /* MobileCoreServices.framework in Frameworks */,
 				15FD39101D82A88B00970CD3 /* libmp3lame.a in Frameworks */,
+				808E95EBF04989504C27E4B7 /* libPods-FMChatDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,6 +344,8 @@
 				15FD38321D82A7B600970CD3 /* FMChatDemoTests */,
 				15FD383D1D82A7B600970CD3 /* FMChatDemoUITests */,
 				15FD38171D82A7B600970CD3 /* Products */,
+				D35789562E56B59B4E5A1276 /* Pods */,
+				188E50D6D78DFA9D54DBDA81 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -506,6 +523,10 @@
 		15FD38CF1D82A88B00970CD3 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				15FD39C51D82AFC400970CD3 /* UIAlertViewBlock.h */,
+				15FD39C61D82AFC400970CD3 /* UIAlertViewBlock.m */,
+				15FD39C21D82AF1100970CD3 /* UIView+FMViewFrame.h */,
+				15FD39C31D82AF1100970CD3 /* UIView+FMViewFrame.m */,
 				15FD38D01D82A88B00970CD3 /* EmoticonKeyboard */,
 				15FD38E81D82A88B00970CD3 /* GTMBase64.h */,
 				15FD38E91D82A88B00970CD3 /* GTMBase64.m */,
@@ -530,8 +551,7 @@
 				15FD38FC1D82A88B00970CD3 /* IMUserItem.m */,
 				15FD38FD1D82A88B00970CD3 /* NSData+AES.h */,
 				15FD38FE1D82A88B00970CD3 /* NSData+AES.m */,
-				15FD38FF1D82A88B00970CD3 /* SignalRClient.h */,
-				15FD39001D82A88B00970CD3 /* SignalRClient.m */,
+				15FD39BC1D82AA8B00970CD3 /* Singler.h */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -594,10 +614,30 @@
 				15FD390A1D82A88B00970CD3 /* IMChatToolBar.m */,
 				15FD390B1D82A88B00970CD3 /* IMVoiceVolumeView.h */,
 				15FD390C1D82A88B00970CD3 /* IMVoiceVolumeView.m */,
+				15FD39BF1D82AE8B00970CD3 /* PlacehodeTextView.h */,
+				15FD39C01D82AE8B00970CD3 /* PlacehodeTextView.m */,
 				15FD390D1D82A88B00970CD3 /* ProgressView.h */,
 				15FD390E1D82A88B00970CD3 /* ProgressView.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		188E50D6D78DFA9D54DBDA81 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				15FD39BD1D82ABF800970CD3 /* MobileCoreServices.framework */,
+				8D5487953B206A21020EA091 /* libPods-FMChatDemo.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D35789562E56B59B4E5A1276 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				345B655F68F8C5D023091BA8 /* Pods-FMChatDemo.debug.xcconfig */,
+				332D1A7B8BD38E507233052A /* Pods-FMChatDemo.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -607,9 +647,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 15FD38431D82A7B600970CD3 /* Build configuration list for PBXNativeTarget "FMChatDemo" */;
 			buildPhases = (
+				36E9564CC9601DA7A6BAACCF /* [CP] Check Pods Manifest.lock */,
 				15FD38121D82A7B600970CD3 /* Sources */,
 				15FD38131D82A7B600970CD3 /* Frameworks */,
 				15FD38141D82A7B600970CD3 /* Resources */,
+				E7BA8AB0491390A48D251D1D /* [CP] Embed Pods Frameworks */,
+				0F7C1968F49A3D10BF77A374 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -799,6 +842,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0F7C1968F49A3D10BF77A374 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FMChatDemo/Pods-FMChatDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		36E9564CC9601DA7A6BAACCF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E7BA8AB0491390A48D251D1D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FMChatDemo/Pods-FMChatDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		15FD38121D82A7B600970CD3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -808,9 +899,9 @@
 				15FD39221D82A88B00970CD3 /* IMAudioTool.m in Sources */,
 				15FD38211D82A7B600970CD3 /* ViewController.m in Sources */,
 				15FD392F1D82A88B00970CD3 /* IMChatMoreView.m in Sources */,
-				15FD392C1D82A88B00970CD3 /* SignalRClient.m in Sources */,
 				15FD39131D82A88B00970CD3 /* IMMessageBody.m in Sources */,
 				15FD392E1D82A88B00970CD3 /* IMBaseTimeCell.m in Sources */,
+				15FD39C41D82AF1100970CD3 /* UIView+FMViewFrame.m in Sources */,
 				15FD39201D82A88B00970CD3 /* YZTextAttachment.m in Sources */,
 				15FD39211D82A88B00970CD3 /* GTMBase64.m in Sources */,
 				15FD381E1D82A7B600970CD3 /* AppDelegate.m in Sources */,
@@ -827,6 +918,7 @@
 				15FD39331D82A88B00970CD3 /* ProgressView.m in Sources */,
 				15FD39271D82A88B00970CD3 /* IMPhotoBrowseController.m in Sources */,
 				15FD390F1D82A88B00970CD3 /* IMBaseTableController.m in Sources */,
+				15FD39C11D82AE8B00970CD3 /* PlacehodeTextView.m in Sources */,
 				15FD391E1D82A88B00970CD3 /* YZEmotionManager.m in Sources */,
 				15FD392A1D82A88B00970CD3 /* IMUserItem.m in Sources */,
 				15FD39291D82A88B00970CD3 /* IMUploadManager.m in Sources */,
@@ -834,6 +926,7 @@
 				15FD39181D82A88B00970CD3 /* UITextField+YZEmotion.m in Sources */,
 				15FD391C1D82A88B00970CD3 /* YZEmotionKeyboard.m in Sources */,
 				15FD39191D82A88B00970CD3 /* UITextView+YZEmotion.m in Sources */,
+				15FD39C71D82AFC400970CD3 /* UIAlertViewBlock.m in Sources */,
 				15FD39311D82A88B00970CD3 /* IMChatToolBar.m in Sources */,
 				15FD392B1D82A88B00970CD3 /* NSData+AES.m in Sources */,
 				15FD39111D82A88B00970CD3 /* IMBaseItem.m in Sources */,
@@ -973,9 +1066,12 @@
 		};
 		15FD38441D82A7B600970CD3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 345B655F68F8C5D023091BA8 /* Pods-FMChatDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = FMChatDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -988,9 +1084,12 @@
 		};
 		15FD38451D82A7B600970CD3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 332D1A7B8BD38E507233052A /* Pods-FMChatDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = FMChatDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1068,6 +1167,7 @@
 				15FD38451D82A7B600970CD3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		15FD38461D82A7B600970CD3 /* Build configuration list for PBXNativeTarget "FMChatDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -1076,6 +1176,7 @@
 				15FD38481D82A7B600970CD3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		15FD38491D82A7B600970CD3 /* Build configuration list for PBXNativeTarget "FMChatDemoUITests" */ = {
 			isa = XCConfigurationList;
@@ -1084,6 +1185,7 @@
 				15FD384B1D82A7B600970CD3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

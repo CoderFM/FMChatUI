@@ -8,7 +8,6 @@
 
 #import "IMUploadManager.h"
 #import "IMBaseAttribute.h"
-#import "SignalRClient.h"
 
 /*
  http://115.236.185.26:8083/Help/Api/POST-api-UpLoadFile-UploadImage_access_token    http://115.236.185.26:8083/Help/Api/POST-api-UpLoadFile-UploadVideo_access_token   http://115.236.185.26:8083/Help/Api/POST-api-UpLoadFile-UploadAudio_access_token 上传用这个把都在同一台服务器上.我新建的站点
@@ -77,7 +76,7 @@
                 IMUploadReturnModel *returnModel = [IMUploadReturnModel modelWithDict:model.data];
                 finishBlock(returnModel);
             } else {
-                [[UIApplication sharedApplication] alertWithMessage:@"上传失败"];
+                NSLog(@"上传失败");
             }
         } else {
             NSLog(@"%@", error);
