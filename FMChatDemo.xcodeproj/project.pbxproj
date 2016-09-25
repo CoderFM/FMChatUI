@@ -45,7 +45,6 @@
 		15FD392A1D82A88B00970CD3 /* IMUserItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FD38FC1D82A88B00970CD3 /* IMUserItem.m */; };
 		15FD392B1D82A88B00970CD3 /* NSData+AES.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FD38FE1D82A88B00970CD3 /* NSData+AES.m */; };
 		15FD392D1D82A88B00970CD3 /* IMBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FD39031D82A88B00970CD3 /* IMBaseCell.m */; };
-		15FD392E1D82A88B00970CD3 /* IMBaseTimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FD39051D82A88B00970CD3 /* IMBaseTimeCell.m */; };
 		15FD392F1D82A88B00970CD3 /* IMChatMoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FD39071D82A88B00970CD3 /* IMChatMoreView.m */; };
 		15FD39301D82A88B00970CD3 /* IMChatMoreView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15FD39081D82A88B00970CD3 /* IMChatMoreView.xib */; };
 		15FD39311D82A88B00970CD3 /* IMChatToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FD390A1D82A88B00970CD3 /* IMChatToolBar.m */; };
@@ -216,8 +215,6 @@
 		15FD38FE1D82A88B00970CD3 /* NSData+AES.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+AES.m"; sourceTree = "<group>"; };
 		15FD39021D82A88B00970CD3 /* IMBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMBaseCell.h; sourceTree = "<group>"; };
 		15FD39031D82A88B00970CD3 /* IMBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMBaseCell.m; sourceTree = "<group>"; };
-		15FD39041D82A88B00970CD3 /* IMBaseTimeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMBaseTimeCell.h; sourceTree = "<group>"; };
-		15FD39051D82A88B00970CD3 /* IMBaseTimeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMBaseTimeCell.m; sourceTree = "<group>"; };
 		15FD39061D82A88B00970CD3 /* IMChatMoreView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMChatMoreView.h; sourceTree = "<group>"; };
 		15FD39071D82A88B00970CD3 /* IMChatMoreView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMChatMoreView.m; sourceTree = "<group>"; };
 		15FD39081D82A88B00970CD3 /* IMChatMoreView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IMChatMoreView.xib; sourceTree = "<group>"; };
@@ -437,10 +434,10 @@
 			children = (
 				15FD38C81D82A88B00970CD3 /* IMBaseItem.h */,
 				15FD38C91D82A88B00970CD3 /* IMBaseItem.m */,
-				15FD38CA1D82A88B00970CD3 /* IMBaseItemTool.h */,
-				15FD38CB1D82A88B00970CD3 /* IMBaseItemTool.m */,
 				15FD38CC1D82A88B00970CD3 /* IMMessageBody.h */,
 				15FD38CD1D82A88B00970CD3 /* IMMessageBody.m */,
+				15FD38CA1D82A88B00970CD3 /* IMBaseItemTool.h */,
+				15FD38CB1D82A88B00970CD3 /* IMBaseItemTool.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -528,9 +525,6 @@
 				15FD39C21D82AF1100970CD3 /* UIView+FMViewFrame.h */,
 				15FD39C31D82AF1100970CD3 /* UIView+FMViewFrame.m */,
 				15FD38D01D82A88B00970CD3 /* EmoticonKeyboard */,
-				15FD38E81D82A88B00970CD3 /* GTMBase64.h */,
-				15FD38E91D82A88B00970CD3 /* GTMBase64.m */,
-				15FD38EA1D82A88B00970CD3 /* GTMDefines.h */,
 				15FD38EB1D82A88B00970CD3 /* IMAudioTool.h */,
 				15FD38EC1D82A88B00970CD3 /* IMAudioTool.m */,
 				15FD38ED1D82A88B00970CD3 /* IMBaseAttribute.h */,
@@ -551,6 +545,9 @@
 				15FD38FC1D82A88B00970CD3 /* IMUserItem.m */,
 				15FD38FD1D82A88B00970CD3 /* NSData+AES.h */,
 				15FD38FE1D82A88B00970CD3 /* NSData+AES.m */,
+				15FD38E81D82A88B00970CD3 /* GTMBase64.h */,
+				15FD38E91D82A88B00970CD3 /* GTMBase64.m */,
+				15FD38EA1D82A88B00970CD3 /* GTMDefines.h */,
 				15FD39BC1D82AA8B00970CD3 /* Singler.h */,
 			);
 			path = Tool;
@@ -605,8 +602,6 @@
 			children = (
 				15FD39021D82A88B00970CD3 /* IMBaseCell.h */,
 				15FD39031D82A88B00970CD3 /* IMBaseCell.m */,
-				15FD39041D82A88B00970CD3 /* IMBaseTimeCell.h */,
-				15FD39051D82A88B00970CD3 /* IMBaseTimeCell.m */,
 				15FD39061D82A88B00970CD3 /* IMChatMoreView.h */,
 				15FD39071D82A88B00970CD3 /* IMChatMoreView.m */,
 				15FD39081D82A88B00970CD3 /* IMChatMoreView.xib */,
@@ -900,7 +895,6 @@
 				15FD38211D82A7B600970CD3 /* ViewController.m in Sources */,
 				15FD392F1D82A88B00970CD3 /* IMChatMoreView.m in Sources */,
 				15FD39131D82A88B00970CD3 /* IMMessageBody.m in Sources */,
-				15FD392E1D82A88B00970CD3 /* IMBaseTimeCell.m in Sources */,
 				15FD39C41D82AF1100970CD3 /* UIView+FMViewFrame.m in Sources */,
 				15FD39201D82A88B00970CD3 /* YZTextAttachment.m in Sources */,
 				15FD39211D82A88B00970CD3 /* GTMBase64.m in Sources */,

@@ -8,7 +8,6 @@
 
 #import "IMBaseTableController.h"
 #import "IMBaseCell.h"
-#import "IMBaseTimeCell.h"
 #import "IMBaseItem.h"
 #import "MJRefresh.h"
 #import "IMBaseAttribute.h"
@@ -115,9 +114,7 @@ CGFloat SchoolChatMoreHeight = 120;
 }
 
 - (void)viewWillAppear:(BOOL)animated{
-    
     [super viewWillAppear:animated];
-    
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -412,6 +409,7 @@ CGFloat SchoolChatMoreHeight = 120;
 #pragma mark - IMBaseCell delegate
 
 - (void)IMBaseCell:(IMBaseCell *)cell presentViewController:(UIViewController *)viewController animated:(BOOL)animated completion:(void (^)())completion{
+    [[IMAudioTool shareAudioTool] stopPlay];
     [self presentViewController:viewController animated:animated completion:completion];
 }
 
@@ -421,6 +419,7 @@ CGFloat SchoolChatMoreHeight = 120;
     }
 }
 
+#pragma mark - 语音Cell点击的回调
 - (void)IMBaseCellClickAudioCell:(IMBaseCell *)cell{
     
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
@@ -428,7 +427,12 @@ CGFloat SchoolChatMoreHeight = 120;
     [self playAudioWithIndexPath:indexPath autoNext:YES];
     
 }
-
+/**
+ *  准备播放
+ *
+ *  @param indexPath 播放的哪一行
+ *  @param next      是否播放下一行未读
+ */
 - (void)playAudioWithIndexPath:(NSIndexPath *)indexPath autoNext:(BOOL)next{
     
     IMBaseItem *message = [self.reloadTable mutableArrayValueForKey:@"messages"][indexPath.row];
@@ -476,7 +480,13 @@ CGFloat SchoolChatMoreHeight = 120;
         }];
     }
 }
-
+/**
+ *  获取下一行未读的IndexPath
+ *
+ *  @param currentIndexPath 当前播放的IndexPath
+ *
+ *  @return 下一行未读的IndexPath
+ */
 - (NSIndexPath *)getNextIndexPathForUnReadAudioWithCurrentIndexPath:(NSIndexPath *)currentIndexPath{
     
     if (currentIndexPath.row < [self.reloadTable mutableArrayValueForKey:@"messages"].count - 1) {

@@ -17,9 +17,18 @@ typedef enum{
 
 @class IMBaseCell;
 @protocol IMBaseCellDelegate <NSObject>
-
+/**
+ *  点击视频,图片的代理方法
+ *
+ *  @param cell           点击的cell
+ *  @param viewController 实例化好的控制器
+ *  @param animated       是否动画过去
+ *  @param completion     动画完成后要执行的代码
+ */
 - (void)IMBaseCell:(IMBaseCell *)cell presentViewController:(UIViewController *)viewController animated:(BOOL)animated completion:(void(^)())completion;
-
+/**
+ *  重新发送(发送失败的情况下)
+ */
 - (void)IMBaseCell:(IMBaseCell *)cell reSendMessage:(IMBaseItem *)message;
 
 - (void)IMBaseCellClickAudioCell:(IMBaseCell *)cell;
@@ -28,16 +37,6 @@ typedef enum{
 
 @class IMBufferView;
 @interface IMBaseCell : UITableViewCell
-
-@property(nonatomic, weak)UILabel *nameLabel;
-
-@property(nonatomic, weak)UILabel *nameInfoLabel;
-
-@property(nonatomic, weak)UIImageView *headImageView;
-
-@property(nonatomic, weak)IMBufferView *bufferView;
-
-@property(nonatomic, weak)UIImageView *readImageView;
 
 @property(nonatomic, assign)IMBaseCellStyle style;
 

@@ -26,6 +26,16 @@
 
 @interface IMBaseCell ()
 
+@property(nonatomic, weak)UILabel *nameLabel;
+
+@property(nonatomic, weak)UILabel *nameInfoLabel;
+
+@property(nonatomic, weak)UIImageView *headImageView;
+
+@property(nonatomic, weak)IMBufferView *bufferView;
+
+@property(nonatomic, weak)UIImageView *readImageView;
+
 @property(nonatomic, weak)UIView *timeView;
 
 @property(nonatomic, weak)UILabel *timeLabel;
@@ -53,6 +63,8 @@
 @property(nonatomic, weak)UIButton *clickButton;
 
 @property(nonatomic, weak)UIButton *reSendButton;
+
+
 
 @end
 

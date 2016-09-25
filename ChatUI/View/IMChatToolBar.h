@@ -18,14 +18,14 @@
 /**
  *  刷新消息
  */
-- (void)IMChatToolBar:(IMChatToolBar *)schoolChatToolBar imBaseItem:(IMBaseItem *)messageItem;
+- (void)IMChatToolBar:(IMChatToolBar *)chatToolBar imBaseItem:(IMBaseItem *)messageItem;
 /**
  *  发送多条
  *
  *  @param schoolChatToolBar 
  *  @param messageItem       消息体
  */
-- (void)IMChatToolBar:(IMChatToolBar *)schoolChatToolBar sendIMBaseItem:(IMBaseItem *)messageItem;
+- (void)IMChatToolBar:(IMChatToolBar *)chatToolBar sendIMBaseItem:(IMBaseItem *)messageItem;
 
 /*
  *  键盘弹出  更新外部高度
@@ -36,18 +36,30 @@
 
 @interface IMChatToolBar : UIView
 
-@property(nonatomic, copy)void(^moreButtonClickBlock)();
-
 @property(nonatomic, weak)id<IMChatToolBarDelegate> delegate;
 
 @property(nonatomic, weak)PlacehodeTextView *inputTextView;
-
+/**
+ *  实例化一个toolBar
+ *
+ *  @param frame          尺寸
+ *  @param toolBarHeight  toolBar的高度
+ *  @param moreViewHeight 更多的View的高度
+ *
+ *  @return 实例
+ */
 - (instancetype)initWithFrame:(CGRect)frame toolBarHeight:(CGFloat)toolBarHeight moreViewHeight:(CGFloat)moreViewHeight;
-
+/**
+ *  回到最底部
+ */
 - (void)backOriginalHeight;
-
+/**
+ *  隐藏
+ */
 - (void)hide;
-
+/**
+ *  显示
+ */
 - (void)show;
 
 @end
